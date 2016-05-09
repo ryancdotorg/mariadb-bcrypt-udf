@@ -11,10 +11,10 @@ Two functions are defined:
 BCRYPT\_HASH(password, work\_factor)
 ------------------------------------
 Returns a bcrypt `$2b$` hash for the provided password with a random salt and
-the given work factor. If `work\_factor` is NULL, a sensible default
-(currently 12) will be used. The `work\_factor` is clamped to be between 4 and
+the given work factor. If `work_factor` is NULL, a sensible default
+(currently 12) will be used. The `work_factor` is clamped to be between 4 and
 16 inclusive - if you want to allow smaller or larger work factors, change
-`WORKFACTOR\_MIN` and/or `WORKFACTOR\_MAX` in `bcrypt.c`. Returns NULL on error.
+`WORKFACTOR_MIN` and/or `WORKFACTOR_MAX` in `bcrypt.c`. Returns NULL on error.
 
 Note that passwords containing null bytes are not supported and will cause an
 error.
