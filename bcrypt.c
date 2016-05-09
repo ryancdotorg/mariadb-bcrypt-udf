@@ -1,3 +1,15 @@
+/* bcrypt user-defined functions for MariaDB
+ *
+ * Written in 2016 by Ryan Castellucci
+ *
+ * To the extent possible under law, the author(s) have dedicated all copyright
+ * and related and neighboring rights to this software to the public domain
+ * worldwide. This software is distributed without any warranty.
+ *
+ * You should have received a copy of the CC0 Public Domain Dedication along
+ * with this software. If not, see
+ * <http://creativecommons.org/publicdomain/zero/1.0/>. */
+
 #include <my_global.h>
 #include <my_sys.h>
 #include <m_string.h>
@@ -17,7 +29,8 @@
 #define WORKFACTOR_MAX (16)
 #define WORKFACTOR_DEFAULT (12)
 
-/* adapted from https://github.com/rg3/bcrypt */
+/* Parts of this code copied or adapted from https://github.com/rg3/bcrypt
+ * which was written by Ricardo Garcia <r@rg3.name> and released CC0. */
 
 static int try_close(int fd) {
   int ret;
