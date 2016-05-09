@@ -1,0 +1,3 @@
+crypt_blowfish/*.3
+*.o
+*.so
