@@ -11,6 +11,8 @@
 #define BCRYPT_HASHSIZE	(64)
 #define RANDBYTES (16)
 
+#define PASS_MAXLEN (128)
+
 #define WORKFACTOR_MIN (4)
 #define WORKFACTOR_MAX (16)
 #define WORKFACTOR_DEFAULT (12)
@@ -124,7 +126,7 @@ char *bcrypt_hash(UDF_INIT *initid, UDF_ARGS *args, char *res, unsigned long *le
   char *aux;
   char randb[RANDBYTES];
 
-  char pass[64];
+  char pass[PASS_MAXLEN+1];
   char salt[BCRYPT_HASHSIZE];
 
   long long workfactor;
@@ -205,7 +207,7 @@ long long bcrypt_check(UDF_INIT *initid, UDF_ARGS *args, char *is_null, char *er
   char *aux;
   char chk_hash[BCRYPT_HASHSIZE];
 
-  char pass[64];
+  char pass[PASS_MAXLEN+1];
   char hash[BCRYPT_HASHSIZE];
 
   /* password */
